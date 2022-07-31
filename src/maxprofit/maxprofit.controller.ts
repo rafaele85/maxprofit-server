@@ -10,7 +10,6 @@ export const maxprofitController = async (request: Request, response: Response )
         end: request.query.end ? parseInt('' + request.query.end) : undefined,
         priceLimit: request.query.priceLimit ? parseFloat('' + request.query.priceLimit) : undefined
     }
-    console.log('---input=', input, typeof input.start, typeof input.end)
     try {
         const storageEngine = getStorageEngine()
         const bestChoice = await maxProfit(input, storageEngine)

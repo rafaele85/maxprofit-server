@@ -8,7 +8,6 @@ import {getNextMinPrice} from "./getNextMinPrice";
 
 
 export const maxProfit = async (input: Partial<MaxProfitInput>, storageEngine: StorageEngineInterface): Promise<MaxProfitOutput | undefined> => {
-
     const validatedInput = validateInput(input, storageEngine)
 
     const {start, end, priceLimit} = validatedInput
