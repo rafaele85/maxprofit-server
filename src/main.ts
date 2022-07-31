@@ -22,6 +22,8 @@ const main = () => {
 }
 
 
-export const app = main()
+const app = main()
+
+export default app
 
 
