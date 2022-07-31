@@ -1,10 +1,10 @@
 import {MaxProfitInput} from "./maxprofit.types";
 import {maxProfit} from "./maxprofit.service";
 import {logger} from "../util/logger";
-import express, {Request, Response} from "express";
+import {Request, Response} from "express";
 import {getStorageEngine} from "../storageEngine/storageEngine.interface";
 
-const maxprofitController = async (request: Request, response: Response ) => {
+export const maxprofitController = async (request: Request, response: Response ) => {
     const input: Partial<MaxProfitInput> = {
         start: request.query.start ? parseInt('' + request.query.start) : undefined,
         end: request.query.end ? parseInt('' + request.query.end) : undefined,
@@ -23,7 +23,3 @@ const maxprofitController = async (request: Request, response: Response ) => {
         }
     }
 }
-
-const router = express.Router()
-router.get('/', maxprofitController)
-export default router
