@@ -13,13 +13,16 @@ export const maxprofitController = async (request: Request, response: Response )
     try {
         const storageEngine = getStorageEngine()
         const bestChoice = await maxProfit(input, storageEngine)
-        response.status(200).json(bestChoice)
+        return response.status(200).json(bestChoice)
     } catch (err) {
         logger.error(err)
         if (err instanceof Error) {
-            response.status(200).json({
+            return response.status(200).json({
                 message: err.message || '' + err
             })
         }
+        return response.status(200).json({
+            message: '' + err
+        })
     }
 }
