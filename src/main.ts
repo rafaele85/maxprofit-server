@@ -16,7 +16,8 @@ const main = () => {
     app.use(cors(corsOptions))
 
     app.get('/api/test', (req, res) => res.send('hello'))
-    app.use('/api/maxprofit', maxprofitRouter)
+    app.get('/api/maxprofit', (req, res) => res.send('hello'))
+    // app.use('/api/maxprofit', maxprofitRouter)
 
     const port = process.env.PORT || 5000
 
