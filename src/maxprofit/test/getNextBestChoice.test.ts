@@ -1,5 +1,5 @@
 import {getNextBestChoice, GetNextBestChoiceParams} from "../getNextBestChoice";
-import {MaxProfitOutput} from "../maxprofilt.types";
+import {MaxProfitOutput} from "../maxprofit.types";
 import {PriceWithIndex} from "../priceWithIndex.type";
 
 describe('getNextBestChoice', () => {

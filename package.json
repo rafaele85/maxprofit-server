@@ -6,7 +6,7 @@
     "test": "jest",
     "build": "tsc",
     "start": "npm run build && node ./dist/start",
-    "dev": "ts-node ./src/start.ts"
+    "dev": "ts-node ./src/main.ts"
   },
   "keywords": [],
   "author": "",

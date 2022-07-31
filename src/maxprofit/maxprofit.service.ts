@@ -1,4 +1,4 @@
-import {MaxProfitInput, MaxProfitOutput} from "./maxprofilt.types";
+import {MaxProfitInput, MaxProfitOutput} from "./maxprofit.types";
 import {StorageEngineInterface} from "../storageEngine/storageEngine.interface";
 import {validateInput} from "./validateInput";
 import {getNextBestChoice} from "./getNextBestChoice";

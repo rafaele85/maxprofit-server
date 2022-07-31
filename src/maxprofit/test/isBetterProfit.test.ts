@@ -1,5 +1,5 @@
 import {isBetterProfit} from "../isBetterProfit";
-import {MaxProfitOutput} from "../maxprofilt.types";
+import {MaxProfitOutput} from "../maxprofit.types";
 
 describe('isBetterProfit', () => {
     it('return true if previous best choice is undefined', () => {

@@ -1,4 +1,4 @@
-import {MaxProfitInput} from "./maxprofilt.types";
+import {MaxProfitInput} from "./maxprofit.types";
 import {StorageEngineInterface} from "../storageEngine/storageEngine.interface";
 
 export const validateInput = (input: MaxProfitInput, storageEngine: StorageEngineInterface): void => {

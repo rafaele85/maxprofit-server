@@ -1,4 +1,4 @@
-import {MaxProfitInput} from "./maxprofilt.types";
+import {MaxProfitInput} from "./maxprofit.types";
 import {maxProfit} from "./maxprofit.service";
 import {logger} from "../util/logger";
 import {Request, Response} from "express";

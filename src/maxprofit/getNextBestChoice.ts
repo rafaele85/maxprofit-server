@@ -1,7 +1,7 @@
-import {MaxProfitOutput} from "./maxprofilt.types";
 import {canAfford} from "./canAfford";
 import {PriceWithIndex} from "./priceWithIndex.type";
 import {isBetterProfit} from "./isBetterProfit";
+import {MaxProfitOutput} from "./maxprofit.types";
 
 
 export type GetNextBestChoiceParams = {

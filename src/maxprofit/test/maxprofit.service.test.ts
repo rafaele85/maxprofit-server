@@ -1,6 +1,6 @@
 import {maxProfit} from "../maxprofit.service";
 import {StorageEngineInterface} from "../../storageEngine/storageEngine.interface";
-import {MaxProfitOutput} from "../maxprofilt.types";
+import {MaxProfitOutput} from "../maxprofit.types";
 
 describe('maxProfit', () => {
     it('should return 1 for profit for simple case [1,2] without price limit', async () => {
@@ -82,6 +82,18 @@ describe('maxProfit', () => {
         }
         const expected: MaxProfitOutput = { buyTime: 0, sellTime: 2, buyPrice: 1, sellPrice: 2, profit: 1}
         const bestChoice = await maxProfit({start: 0, end: 3}, mockStorageEngine)
+        expect(bestChoice).toStrictEqual(expected)
+    })
+
+    it('correctly calculate profit if first price > priceLimit', async () => {
+        const prices: number[] = [10, 1, 2, 2]
+        const mockStorageEngine: StorageEngineInterface = {
+            getMinTime: jest.fn(() => 0),
+            getMaxTime: jest.fn(() => prices.length),
+            getPrices: jest.fn(async (_start: number, _end: number) => prices)
+        }
+        const expected: MaxProfitOutput = { buyTime: 1, sellTime: 2, buyPrice: 1, sellPrice: 2, profit: 1}
+        const bestChoice = await maxProfit({start: 0, end: 3, priceLimit: 5}, mockStorageEngine)
         expect(bestChoice).toStrictEqual(expected)
     })
 
