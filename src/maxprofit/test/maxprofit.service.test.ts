@@ -4,7 +4,7 @@ import {MaxProfitOutput} from "../maxprofit.types";
 
 describe('maxProfit', () => {
     it('should return 1 for profit for simple case [1,2] without price limit', async () => {
-        const prices: number[] = [1, 2]
+        const prices = new Uint16Array([1, 2])
         const mockStorageEngine: StorageEngineInterface = {
             getMinTime: jest.fn(() => 0),
             getMaxTime: jest.fn(() => prices.length),
@@ -16,7 +16,7 @@ describe('maxProfit', () => {
     })
 
     it('correctly handle negative case when all prices are higher than priceLimit', async () => {
-        const prices: number[] = [10, 20]
+        const prices = new Uint16Array([10, 20])
         const mockStorageEngine: StorageEngineInterface = {
             getMinTime: jest.fn(() => 0),
             getMaxTime: jest.fn(() => prices.length),
@@ -27,7 +27,7 @@ describe('maxProfit', () => {
     })
 
     it('correctly handle negative case when prices are not ascending', async () => {
-        const prices: number[] = [6, 5, 4]
+        const prices = new Uint16Array([6, 5, 4])
         const mockStorageEngine: StorageEngineInterface = {
             getMinTime: jest.fn(() => 0),
             getMaxTime: jest.fn(() => prices.length),
@@ -38,7 +38,7 @@ describe('maxProfit', () => {
     })
 
     it('find best profit out if several choices w/o priceLimit: second min is lower but first profit is higher', async () => {
-        const prices: number[] = [4, 100, 2, 10]
+        const prices = new Uint16Array([4, 100, 2, 10])
         const mockStorageEngine: StorageEngineInterface = {
             getMinTime: jest.fn(() => 0),
             getMaxTime: jest.fn(() => prices.length),
@@ -50,7 +50,7 @@ describe('maxProfit', () => {
     })
 
     it('find best profit out if several choices w/o priceLimit: second min is lower, second max is lower', async () => {
-        const prices: number[] = [4, 100, 2, 99]
+        const prices = new Uint16Array([4, 100, 2, 99])
         const mockStorageEngine: StorageEngineInterface = {
             getMinTime: jest.fn(() => 0),
             getMaxTime: jest.fn(() => prices.length),
@@ -62,7 +62,7 @@ describe('maxProfit', () => {
     })
 
     it('find best profit out if several choices w/o priceLimit: second min is lower, second max is higher', async () => {
-        const prices: number[] = [4, 100, 2, 101]
+        const prices = new Uint16Array([4, 100, 2, 101])
         const mockStorageEngine: StorageEngineInterface = {
             getMinTime: jest.fn(() => 0),
             getMaxTime: jest.fn(() => prices.length),
@@ -74,7 +74,7 @@ describe('maxProfit', () => {
     })
 
     it('correctly pick first index in case of multiple points with the same price', async () => {
-        const prices: number[] = [1, 1, 2, 2]
+        const prices = new Uint16Array([1, 1, 2, 2])
         const mockStorageEngine: StorageEngineInterface = {
             getMinTime: jest.fn(() => 0),
             getMaxTime: jest.fn(() => prices.length),
@@ -86,7 +86,7 @@ describe('maxProfit', () => {
     })
 
     it('correctly calculate profit if first price > priceLimit', async () => {
-        const prices: number[] = [10, 1, 2, 2]
+        const prices = new Uint16Array([10, 1, 2, 2])
         const mockStorageEngine: StorageEngineInterface = {
             getMinTime: jest.fn(() => 0),
             getMaxTime: jest.fn(() => prices.length),

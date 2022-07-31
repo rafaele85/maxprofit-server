@@ -4,7 +4,7 @@ import {StorageEngineInterface} from "../../storageEngine/storageEngine.interfac
 
 describe('validateInput', () => {
     it('should not throw error for valid input', () => {
-        const mockPrices = [1, 2]
+        const mockPrices = new Uint16Array([1, 2])
         const validInput: MaxProfitInput = {start: 0, end: 1}
         const storageEngineMock: StorageEngineInterface = {
             getMinTime: jest.fn( () => 0),

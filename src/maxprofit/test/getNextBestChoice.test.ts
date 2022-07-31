@@ -4,7 +4,7 @@ import {PriceWithIndex} from "../priceWithIndex.type";
 
 describe('getNextBestChoice', () => {
     it('should return best choice from current index if can afford and is better profit', () => {
-        const prices = [1, 2, 3]
+        const prices = new Uint16Array([1, 2, 3])
         const index = 1
         const currentMin: PriceWithIndex = {price: 1, startIndex: 0}
 
@@ -19,7 +19,7 @@ describe('getNextBestChoice', () => {
     })
 
     it('should return undefined if can not afford', () => {
-        const prices = [4, 20]
+        const prices = new Uint16Array([4, 20])
         const index = 1
         const currentMin: PriceWithIndex = {price: 4, startIndex: 0}
 

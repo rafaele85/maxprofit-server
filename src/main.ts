@@ -1,11 +1,9 @@
 import express from "express"
 import {maxprofitController} from "./maxprofit/maxprofit.controller";
 import {logger} from "./util/logger";
-import dotenv from 'dotenv'
 
-
+//62137 51045
 const main = () => {
-    dotenv.config()
 
     const app = express()
     const port = process.env.PORT || 5000

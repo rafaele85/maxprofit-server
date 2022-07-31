@@ -5,7 +5,7 @@ import {MaxProfitOutput} from "./maxprofit.types";
 
 
 export type GetNextBestChoiceParams = {
-    prices: number[],
+    prices: Uint16Array,
     index: number,
     currentMin: PriceWithIndex,
     previousBestChoice: MaxProfitOutput | undefined,
