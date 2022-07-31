@@ -5,7 +5,7 @@ import {Request, Response} from "express";
 import {getStorageEngine} from "../storageEngine/storageEngine.interface";
 
 export const maxprofitController = async (request: Request, response: Response ) => {
-    response.json({text: 2222})
+    response.status(200).json({text: 2222})
     return
     const input: Partial<MaxProfitInput> = {
         start: request.query.start ? parseInt('' + request.query.start) : undefined,
