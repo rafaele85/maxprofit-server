@@ -1,7 +1,7 @@
 import {MaxProfitInput} from "./maxprofit.types";
 import {StorageEngineInterface} from "../storageEngine/storageEngine.interface";
 
-export const validateInput = (input: MaxProfitInput, storageEngine: StorageEngineInterface): void => {
+export const validateInput = (input: Partial<MaxProfitInput>, storageEngine: StorageEngineInterface): MaxProfitInput => {
     if (!input) {
         throw new Error('input params not specified')
     }
@@ -24,4 +24,14 @@ export const validateInput = (input: MaxProfitInput, storageEngine: StorageEngin
     if (start < minTime || start >= maxTime || end <= minTime || end > maxTime) {
         throw new Error('start and end time should be within the interval ' + minTime +' , ' + maxTime)
     }
+
+    const validated: MaxProfitInput = {
+        start: input.start!,
+        end: input.end!,
+    }
+    if (input.priceLimit) {
+        validated.priceLimit = input.priceLimit
+    }
+
+    return validated
 }

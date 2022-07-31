@@ -12,11 +12,13 @@ describe('validateInput', () => {
             getPrices: async (_start: number, _end: number) => mockPrices
         }
         let error
+        let res: MaxProfitInput | undefined = undefined
         try {
-            validateInput(validInput, storageEngineMock)
+            res = validateInput(validInput, storageEngineMock)
         } catch (err) {
             error = err
         }
         expect(error).toBeUndefined()
+        expect(res).toStrictEqual(validInput)
     })
 })
