@@ -6,9 +6,17 @@ import {logger} from "./util/logger";
 const main = () => {
 
     const port = process.env.PORT || 5000
+    const corsOrigin = process.env.CORS_ORIGIN
+    let corsOptions
+    if (corsOrigin) {
+        corsOptions = {
+            origin: corsOrigin
+        }
+    }
 
     const app = express()
-    app.use(cors())
+    app.use(cors(corsOptions)
+    )
 
     app.use('/api/maxprofit', maxprofitController)
 
