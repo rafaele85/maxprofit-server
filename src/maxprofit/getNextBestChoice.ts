@@ -7,16 +7,16 @@ import {isBetterProfit} from "./isBetterProfit";
 export type GetNextBestChoiceParams = {
     prices: number[],
     index: number,
-    minPrices: PriceWithIndex[],
+    currentMin: PriceWithIndex,
     previousBestChoice: MaxProfitOutput | undefined,
     priceLimit?: number
 }
 
 export const getNextBestChoice = (params: GetNextBestChoiceParams): MaxProfitOutput | undefined => {
-    const {prices, index, minPrices, previousBestChoice, priceLimit} = params
+    const {prices, index, currentMin, previousBestChoice, priceLimit} = params
 
     const sellPrice = prices[index]
-    const buyPriceRecord = minPrices[index-1]
+    const buyPriceRecord = currentMin
     const buyPrice = buyPriceRecord.price
     const profit = sellPrice - buyPrice
 

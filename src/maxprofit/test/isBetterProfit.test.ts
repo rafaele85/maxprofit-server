@@ -26,4 +26,17 @@ describe('isBetterProfit', () => {
         expect(result).toBe(false)
     })
 
+    it('return false if profit < 0', () => {
+        const prevBestChoice: MaxProfitOutput = {profit: 10, buyPrice: 1, sellPrice: 11, sellTime: 10, buyTime: 1}
+        const result = isBetterProfit(-1, prevBestChoice)
+        expect(result).toBe(false)
+    })
+
+    it('return false if profit = 0', () => {
+        const prevBestChoice: MaxProfitOutput = {profit: 10, buyPrice: 1, sellPrice: 11, sellTime: 10, buyTime: 1}
+        const result = isBetterProfit(0, prevBestChoice)
+        expect(result).toBe(false)
+    })
+
+
 })

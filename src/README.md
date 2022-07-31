@@ -1,0 +1,4 @@
+Future improvements:
+
+* Implement linter
+* 
