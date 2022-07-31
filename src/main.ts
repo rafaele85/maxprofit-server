@@ -15,6 +15,7 @@ const main = () => {
     const app = express()
     app.use(cors(corsOptions))
 
+    app.get('/api/test', (req, res) => res.send('hello'))
     app.use('/api/maxprofit', maxprofitRouter)
 
     const port = process.env.PORT || 5000
