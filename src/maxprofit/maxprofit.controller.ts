@@ -18,11 +18,11 @@ export const maxprofitController = async (request: Request, response: Response )
     } catch (err) {
         logger.error(err)
         if (err instanceof Error) {
-            response.status(500).json({
+            response.status(200).json({
                 message: err.message || '' + err
             })
         }
-        response.status(500).json({
+        response.status(200).json({
             message: '' + err
         })
         return
