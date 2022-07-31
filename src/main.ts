@@ -1,11 +1,9 @@
 import express from "express"
 import {maxprofitController} from "./maxprofit/maxprofit.controller";
 import cors from 'cors'
-import {logger} from "./util/logger";
 
 const main = () => {
 
-    const port = process.env.PORT || 5000
     const corsOrigin = process.env.CORS_ORIGIN
     let corsOptions
     if (corsOrigin) {
@@ -20,10 +18,10 @@ const main = () => {
 
     app.use('/api/maxprofit', maxprofitController)
 
-    app.listen(port, () => {
-        logger.log('started at ', port)
-    })
+    return app
 }
 
 
-void main()
+export const app = main()
+
+
