@@ -17,7 +17,7 @@ const maxprofitController = async (request: Request, response: Response ) => {
     } catch (err) {
         logger.error(err)
         if (err instanceof Error) {
-            response.status(200).send({
+            response.status(500).send({
                 message: err.message || '' + err
             })
         }
