@@ -5,6 +5,8 @@ import {Request, Response} from "express";
 import {getStorageEngine} from "../storageEngine/storageEngine.interface";
 
 export const maxprofitController = async (request: Request, response: Response ) => {
+    response.send('----tst')
+    return
     const input: Partial<MaxProfitInput> = {
         start: request.query.start ? parseInt('' + request.query.start) : undefined,
         end: request.query.end ? parseInt('' + request.query.end) : undefined,
@@ -13,17 +15,17 @@ export const maxprofitController = async (request: Request, response: Response )
     try {
         const storageEngine = getStorageEngine()
         const bestChoice = await maxProfit(input, storageEngine)
-        response.json(bestChoice)
+        response.json(bestChoice).end()
     } catch (err) {
         logger.error(err)
         if (err instanceof Error) {
             response.json({
-                message: err.message || '' + err
-            })
+                message: '' + (err as any).message || '' + err
+            }).end()
             return
         }
         response.json({
             message: '' + err
-        })
+        }).end()
     }
 }
