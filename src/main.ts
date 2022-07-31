@@ -4,16 +4,10 @@ import {maxprofitController} from "./maxprofit/maxprofit.controller";
 
 const main = () => {
 
-    const corsOrigin = process.env.CORS_ORIGIN
-    let corsOptions
-    if (corsOrigin) {
-        corsOptions = {
-            origin: corsOrigin
-        }
-    }
-
     const app = express()
-    app.use(cors(corsOptions))
+    app.use(cors({
+        origin: '*'
+    }))
 
     app.get('/api/maxprofit', maxprofitController)
 
