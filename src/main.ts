@@ -13,9 +13,9 @@ const main = () => {
     }
 
     const app = express()
-    app.use(cors(corsOptions)
-    )
+    app.use(cors(corsOptions))
 
+    app.get('/', (req, res) => res.end('hello') )
     app.use('/api/maxprofit', maxprofitController)
 
     return app
