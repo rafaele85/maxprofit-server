@@ -1,5 +1,5 @@
 import express from "express"
-import {maxprofitController} from "./maxprofit/maxprofit.controller";
+import maxprofitRouter from "./maxprofit/maxprofit.controller";
 import cors from 'cors'
 
 const main = () => {
@@ -15,15 +15,14 @@ const main = () => {
     const app = express()
     app.use(cors(corsOptions))
 
-    app.get('/', (req, res) => res.end('hello') )
-    app.use('/api/maxprofit', maxprofitController)
+    app.use('/api/maxprofit', maxprofitRouter)
 
-    return app
+    const port = process.env.PORT || 5000
+
+    app.listen(port, () => {
+        console.log('---listening to ', port)
+    })
 }
 
 
-const app = main()
-
-export default app
-
-
+void main()
