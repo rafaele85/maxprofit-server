@@ -14,7 +14,11 @@ export const maxprofitController = async (request: Request, response: Response )
     try {
         const storageEngine = getStorageEngine()
         const bestChoice = await maxProfit(input, storageEngine)
-        response.json(bestChoice);
+        if (bestChoice) {
+            response.json(bestChoice);
+        } else {
+            response.status(404).send('There are no options to buy/sell stock matching your criteria')
+        }
         return
     } catch (err) {
         error = (err as any).message || '' + (err as any) || error
